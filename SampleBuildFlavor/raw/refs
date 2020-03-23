@@ -1,0 +1,41 @@
+// compilacao, gradle e afins
+https://developer.android.com/studio/build?hl=pt-br
+
+
+build.gradle na raiz do projeto - https://developer.android.com/studio/build?hl=pt-br#top-level
+
+Este arquivo define as configuracoes de compilacao comum a todos os modulos do projeto. Dentro
+do bloco "buildscript" pode-se definir os repositorios e dependencias do gradle comuns a todos
+os modulos do projeto.
+
+Exemplo - Dentro do bloco buildscript definimos quais repositorios contem as dependencias
+para o plugin gradle funcionar ( bloco repositiry {} ), definimos as dependencias do proprio
+plugin, podemos definir propriedades que podem ser utilizadas em qualquer modulo do projeto (
+bloco ext {}). Para acessar uma propriedade definida a nivel de projeto dentro do arquivo
+build.gradle dum modulo especifico use a sintaxe "rootProject.ext.property_name" ou em caso
+de precisar usar numa interpolacao de string - "com.android.support:appcompat-v7:${rootProject.ext.property_name}"
+
+
+Glossario - https://source.android.com/setup/start/glossary
+
+APk - Android Package
+ART - Android Runtime
+
+Android Runtime eh o gerenciador em tempo de execucao usado pelas aplicacoes
+e alguns servicos de sistema no Android. ART eh o gerenciador de execucao padrao
+em dispositivos que executam Android 5.0 ou superior. Ele executa arquivos dex e
+especificacoes de bytecode dex, ART e Dalvik sao compativeis executando DEX bytecode
+assim aplicacoes desenvolvidas para Dalvik devem funcionar em ART
+
+dex - dalvik executable
+
+Programas android sao compilados em arquivos .dex que sao zipados num unico arquivo .apk
+
+Android Interface Definition Language (AIDL)
+https://developer.android.com/guide/components/aidl
+
+build variants
+https://developer.android.com/studio/build/build-variants
+
+product flavors
+https://developer.android.com/studio/build/build-variants?hl=pt-br#product-flavors

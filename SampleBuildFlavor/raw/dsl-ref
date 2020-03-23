@@ -1,0 +1,104 @@
+estrutura basica de um build.gradle nivel projeto
+'''
+buildscript {
+    exts{}
+    repositores {}
+    dependecies {}
+}
+
+allprojects {
+    repositores {}
+}
+'''
+
+estrutura basica de um build.gradle nivel modulo
+
+'''
+// aplica o plugin gradle-android para o build e disponibiliza o bloco android (android {})
+para configuracao de opcoes de build
+apply plugin: 'com.android.application'
+
+// android block
+android {
+    //
+    compileSdkVersion
+    //
+    buildToolsVersion
+
+    // configuracao padrao a todas as variantes de build. POdemos definir variaveis que podem
+    ser usadas no arquivo AndroidManifest.xml
+    defaultConfig {
+        applicationId 'com.example.myapp'
+
+        // Defines the minimum API level required to run the app.
+        minSdkVersion 15
+
+        // Specifies the API level used to test the app.
+        targetSdkVersion 28
+
+        // Defines the version number of your app.
+        versionCode 1
+
+        // Defines a user-friendly version name for your app.
+        versionName "1.0"
+    }
+
+    // bloco para definicao de multiplos build types
+    buildType {
+        // debug ja eh definido implicitamente, mas pode ser definido explicitamente
+        // caso alguma configuracao queira ser definida para esse tipo de build
+
+        // bloco do tipo release sempre eh definido pela IDE ao construir o projeto para
+        // disponibilizar a compressao de codigo nesse build type e especificar as configuracoes
+        // padrao do proguar
+        release {
+            minifyEnabled true // Enables code shrinking for the release build type.
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //  no bloco 'productFlavors' definimos os multiplos flavors que uma aplicacao
+    // pode ter. Ao defini-lo precisamos definir ao menos um nome para cada flavor, e
+    isso eh feito atraves do atrbituo flavorDimensions ()
+
+    flavorDimensions "nome_1", "nome_2" ... "nome_n"
+    productFlavors  {
+
+        nomeQualquerA {
+            dimension "nome_n"
+            applicationId
+            applicationIdSuffix
+            ... sobreescrever qualquer atributo definido em defaultConfig
+        }
+
+        nomeQualquerB {}
+    }
+
+    split {
+        density {}
+    }
+
+    // especifica as dependencias necessarias para realizar o build do modulo onde o arquivo
+    build.gradle encontra-se
+    dependecies {}
+}
+'''
+
+
+http://google.github.io/android-gradle-dsl/current/index.html
+
+
+
+Property details
+- Action<VariantFilter> variantFilter - especifica as variantes do plugin Android que devem ser
+incluidas ou removidas do projeto gradle
+
+
+
+Method details
+- void flavorDimensions(String... dimensions) - especifica os nomes das dimensoes dos product
+flavors do projeto
+
+
+Script blocks
+- productFlavors -> Encapsula todos as configuracoes de product flavors do projeto
