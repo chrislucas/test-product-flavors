@@ -91,6 +91,10 @@ Pasta origem de arquivos - https://developer.android.com/studio/build?hl=pt-br#s
 // combinacao flavor + buildType
 src/productFlavorBuildType/
 
+- https://developer.android.com/studio/build/build-variants?hl=pt-br#flavor-dimensions
+
+- https://developer.android.com/studio/build/build-variants?hl=pt-br#filter-variants
+
 http://google.github.io/android-gradle-dsl/current/index.html
 
 Property details
