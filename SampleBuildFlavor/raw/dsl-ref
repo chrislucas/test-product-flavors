@@ -84,10 +84,14 @@ android {
 }
 '''
 
+Pasta origem de arquivos - https://developer.android.com/studio/build?hl=pt-br#sourcesets
+- src/main/
+- src/buildType/
+- src/productFlavor/
+// combinacao flavor + buildType
+src/productFlavorBuildType/
 
 http://google.github.io/android-gradle-dsl/current/index.html
-
-
 
 Property details
 - Action<VariantFilter> variantFilter - especifica as variantes do plugin Android que devem ser
